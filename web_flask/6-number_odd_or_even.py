@@ -48,6 +48,15 @@ def tmper(n):
         abort(404)
 
 
+@app.route('/number_odd_or_even/<n>')
+def evenoroddt(n):
+    """ever or odd display"""
+    try:
+        return render_template('6-number_odd_or_even.html', n=int(n))
+    except ValueError:
+        abort(404)
+
+
 if __name__ == "__main__":
     app.url_map.strict_slashes = False
     app.run(host="0.0.0.0", port=5000)
