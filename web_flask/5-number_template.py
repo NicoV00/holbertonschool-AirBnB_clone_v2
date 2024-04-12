@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Starts flask 5"""
-from flask import Flask, render_template
+from flask import Flask, abort, render_template
 
 app = Flask(__name__)
 
@@ -30,16 +30,22 @@ def ptext(text='is cool'):
     return 'Python {}'.format(text.replace("_", ' '))
 
 
-@app.route('/number/<int:n>')
+@app.route('/number/<n>')
 def isanum(n):
     """number int"""
-    return str(n) + ' is a number'
+    try:
+        return str(n) + ' is a number'
+    except:
+        abort(404)
 
 
 @app.route('/number_template/<n>')
 def tmper(n):
-    """template"""
-    return render_template('5-number.html', n=int(n))
+    """template display"""
+    try:
+        return render_template('5-number.html', n=int(n))
+    except:
+        abort(404)
 
 
 if __name__ == "__main__":
