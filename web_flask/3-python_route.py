@@ -10,15 +10,18 @@ def hello_hbnb():
     """prints hello"""
     return "Hello HBNB!"
 
+
 @app.route('/hbnb')
 def hbnb():
     """prints hbnb"""
     return "HBNB"
 
+
 @app.route('/c/<text>')
 def ctext(text):
     """prints c text"""
     return 'C ' + text.replace("_", ' ')
+
 
 @app.route('/python/', defaults={'text': 'is cool'})
 @app.route('/python/<text>')
