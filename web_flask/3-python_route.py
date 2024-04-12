@@ -23,12 +23,11 @@ def ctext(text):
     return 'C ' + text.replace("_", ' ')
 
 
-@app.route('/python/', defaults={'text': 'is cool'})
+@app.route('/python/')
 @app.route('/python/<text>')
 def ptext(text='is cool'):
     """python text"""
-    text = text.replace("_", " ")
-    return 'Python  ' + text
+    return 'Python {}'.format(text.replace("_", ' '))
 
 
 if __name__ == "__main__":

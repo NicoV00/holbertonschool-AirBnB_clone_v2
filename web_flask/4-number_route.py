@@ -23,16 +23,15 @@ def ctext(text):
     return 'C ' + text.replace("_", ' ')
 
 
-@app.route('/python/', defaults={'text': 'is cool'})
+@app.route('/python/')
 @app.route('/python/<text>')
 def ptext(text='is cool'):
     """python text"""
-    text = text.replace("_", " ")
-    return 'Python  ' + text
+    return 'Python {}'.format(text.replace("_", ' '))
 
 
 @app.route('/number/<int:n>')
-def isnumb(n):
+def isanum(n):
     """number int"""
     return str(n) + ' is a number'
 
