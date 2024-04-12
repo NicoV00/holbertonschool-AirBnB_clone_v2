@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Starts flask 4"""
-from flask import Flask, abort
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -30,13 +30,10 @@ def ptext(text='is cool'):
     return 'Python {}'.format(text.replace("_", ' '))
 
 
-@app.route('/number/<n>')
+@app.route('/number/<int:n>')
 def isanum(n):
     """number int"""
-    try:
-        return str(n) + ' is a number'
-    except:
-        abort(404)
+    return str(n) + ' is a number'
 
 
 if __name__ == "__main__":
